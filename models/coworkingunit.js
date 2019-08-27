@@ -9,20 +9,20 @@ export default (sequelize, DataTypes) => {
       allowNull: { args: false, msg: 'Address is required.' }
     },
     email: {
-      type: DataTypes.STRING
-      allowNull: { args: false, msg: 'Email is required.' }
+      type: DataTypes.STRING,
+      allowNull: { args: false, msg: 'Email is required.' },
       unique: { args: true, msg: 'Email address already exists.' },
       validate: {
-        isEmail: { args: true, msg: 'Please enter a valid email address.' },
+        isEmail: { args: true, msg: 'Please enter a valid email address.' }
       }
     }
   }, {})
 
-  CoworkingUnit.associate = function(models) {
+  CoworkingUnit.associate = (models) => {
     CoworkingUnit.hasMany(models.Company, {
       foreignKey: 'coworkingUnitId'
     })
   }
 
-  return CoworkingUnit;
+  return CoworkingUnit
 }

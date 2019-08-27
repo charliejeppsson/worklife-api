@@ -1,10 +1,10 @@
 export default (sequelize, DataTypes) => {
   const User = sequelize.define('User', {
-    first_name: {
+    firstName: {
       type: DataTypes.STRING,
       allowNull: { args: false, msg: 'First name is required.' }
     },
-    last_name: {
+    lastName: {
       type: DataTypes.STRING,
       allowNull: { args: false, msg: 'Last name is required.' }
     },
@@ -25,6 +25,15 @@ export default (sequelize, DataTypes) => {
             throw new Error('Password must be at least 8 characters.')
           }
         }
+      }
+    },
+    companyId: {
+      type: DataTypes.INTEGER,
+      allowNull: { args: false, msg: 'Each user must have a company.' },
+      references: {
+        model: 'Companies',
+        key: 'id',
+        as: 'companyId'
       }
     }
   }, {})

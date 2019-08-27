@@ -24,6 +24,15 @@ export default {
         type: Sequelize.STRING,
         allowNull: false
       },
+      coworkingUnitId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'CoworkingUnits',
+          key: 'id',
+          as: 'coworkingUnitId'
+        }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

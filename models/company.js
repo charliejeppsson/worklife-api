@@ -16,10 +16,19 @@ export default (sequelize, DataTypes) => {
     initials: {
       type: DataTypes.STRING,
       allowNull: { args: false, msg: 'Company initials is required.' }
+    },
+    coworkingUnitId: {
+      type: DataTypes.INTEGER,
+      allowNull: { args: false, msg: 'Each company must have a coworking unit.' },
+      references: {
+        model: 'CoworkingUnits',
+        key: 'id',
+        as: 'coworkingUnitId'
+      }
     }
   }, {})
 
-  Company.associate = function(models) {
+  Company.associate = (models) => {
     Company.hasMany(models.User, {
       foreignKey: 'companyId'
     })
