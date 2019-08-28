@@ -4,8 +4,8 @@
   "description": "Test project mirroring the existing Rails backend with Node, Express, Postgres and GraphQL.",
   "main": "index.js",
   "scripts": {
-    "start": "node index",
-    "dev": "nodemon --exec babel-node index"
+    "start": "node app",
+    "dev": "nodemon --exec babel-node app"
   },
   "keywords": [],
   "author": "Charlie Jeppsson",
