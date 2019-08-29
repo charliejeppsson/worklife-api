@@ -8,7 +8,7 @@ const HOST = 'localhost'
 const PORT = process.env.PORT || 5000
 
 // Log requests to the console
-app.use(logger('dev'))
+app.use(logger('[:date[iso]] :method :url :status - :response-time ms'))
 
 // Parse incoming requests data
 app.use(bodyParser.json())
