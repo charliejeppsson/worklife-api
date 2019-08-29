@@ -1,7 +1,7 @@
 import express from 'express'
-import logger from 'morgan';
-import bodyParser from 'body-parser';
-import routes from './routes'
+import logger from 'morgan'
+import bodyParser from 'body-parser'
+import apiRoutes from './routes/api/v1' 
 
 const app = express() // setup express application
 const HOST = 'localhost'
@@ -15,7 +15,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 
 // Routes
-routes(app)
+app.use('/api/v1', apiRoutes)
 
 // Start listening for server requests;
 app.listen(PORT, HOST, () => {
