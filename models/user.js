@@ -35,6 +35,12 @@ export default (sequelize, DataTypes) => {
         key: 'id',
         as: 'companyId'
       }
+    },
+    title: {
+      type: DataTypes.STRING
+    },
+    avatar: {
+      type: DataTypes.STRING
     }
   }, {})
   
