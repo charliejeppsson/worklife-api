@@ -27,7 +27,7 @@ class UsersController extends BaseController {
     return User
       .findByPk(req.params.id)
       .then(user => {
-        if (user) {
+        if (user && req.body.password) {
           bcrypt.genSalt(10, (err, salt) => {
             bcrypt.hash(req.body.password, salt, (err, hash) => {
               if (err) throw err
@@ -42,6 +42,15 @@ class UsersController extends BaseController {
                 .catch(err => res.status(400).send(err))
             })
           })
+        } else if (user) {
+          user.update(req.body)
+            .then(updatedUser => {
+              res.status(200).send({
+                message: 'Record updated successfully.',
+                user: updatedUser
+              })
+            })
+            .catch(err => res.status(400).send(err))
         } else {
           res.status(404).send({ message: 'Record not found.' })
         }
