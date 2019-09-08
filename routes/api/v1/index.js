@@ -6,6 +6,7 @@ import spaceRoutes from './spaces'
 import eventRoutes from './events'
 import attendanceRoutes from './attendances'
 import collabRoutes from './collabs'
+import participationRoutes from './participations'
 
 const router = express.Router()
 
@@ -16,5 +17,6 @@ router.use('/spaces', spaceRoutes)
 router.use('/events', eventRoutes)
 router.use('/attendances', attendanceRoutes)
 router.use('/collabs', collabRoutes)
+router.use('/participations', participationRoutes)
 
 export default router
