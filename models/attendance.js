@@ -29,6 +29,7 @@ export default (sequelize, DataTypes) => {
       foreignKey: 'eventId',
       onDelete: 'CASCADE'
     })
-  };
-  return Attendance;
-};
+  }
+
+  return Attendance
+}
