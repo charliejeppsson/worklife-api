@@ -23,15 +23,6 @@ export default {
       password: {
         type: Sequelize.STRING
       },
-      companyId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        onDelete: 'CASCADE',
-        references: {
-          model: 'Companies',
-          key: 'id',
-          as: 'companyId'
-        }
       },
       createdAt: {
         type: Sequelize.DATE,

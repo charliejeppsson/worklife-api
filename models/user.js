@@ -27,15 +27,6 @@ export default (sequelize, DataTypes) => {
         }
       }
     },
-    companyId: {
-      type: DataTypes.INTEGER,
-      allowNull: { args: false, msg: 'Each user must have a company.' },
-      references: {
-        model: 'Companies',
-        key: 'id',
-        as: 'companyId'
-      }
-    },
     title: {
       type: DataTypes.STRING
     },
@@ -45,10 +36,7 @@ export default (sequelize, DataTypes) => {
   }, {})
   
   User.associate = (models) => {
-    User.belongsTo(models.Company, {
-      foreignKey: 'companyId',
-      onDelete: 'CASCADE'
-    })
+    // Nothing here yet
   }
   
   return User

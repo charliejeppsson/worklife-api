@@ -6,7 +6,6 @@ export default {
         lastName: 'Jeppsson',
         email: 'charlie.jeppsson1@gmail.com',
         password: '1234567890',
-        companyId: 33,
         createdAt : new Date(),
         updatedAt : new Date()
       },
@@ -15,7 +14,6 @@ export default {
         lastName: 'Murphy',
         email: 'yadayda1@yadayada.se',
         password: '1234567890',
-        companyId: 33,
         createdAt : new Date(),
         updatedAt : new Date()
       },
@@ -24,7 +22,6 @@ export default {
         lastName: 'Hendrix',
         email: 'yadayada2@yadayada.se',
         password: '1234567890',
-        companyId: 34,
         createdAt : new Date(),
         updatedAt : new Date()
       },
@@ -33,7 +30,6 @@ export default {
         lastName: 'Johnsson',
         email: 'yadayada3@yadayada.se',
         password: '1234567890',
-        companyId: 35,
         createdAt : new Date(),
         updatedAt : new Date()
       },
@@ -42,7 +38,6 @@ export default {
         lastName: 'Putin',
         email: 'yadayada4@yadayada.se',
         password: '1234567890',
-        companyId: 36,
         createdAt : new Date(),
         updatedAt : new Date()
       },
@@ -51,7 +46,6 @@ export default {
         lastName: 'Sorkin',
         email: 'yadayada5@yadayada.se',
         password: '1234567890',
-        companyId: 37,
         createdAt : new Date(),
         updatedAt : new Date()
       },
@@ -60,7 +54,6 @@ export default {
         lastName: 'Anderson',
         email: 'yadayada6@yadayada.se',
         password: '1234567890',
-        companyId: 38,
         createdAt : new Date(),
         updatedAt : new Date()
       },
@@ -69,7 +62,6 @@ export default {
         lastName: 'Tarantino',
         email: 'yadayada7@yadayada.se',
         password: '1234567890',
-        companyId: 39,
         createdAt : new Date(),
         updatedAt : new Date()
       },
@@ -78,7 +70,6 @@ export default {
         lastName: 'Kubrick',
         email: 'yadayada8@yadayada.se',
         password: '1234567890',
-        companyId: 34,
         createdAt : new Date(),
         updatedAt : new Date()
       },
@@ -87,7 +78,6 @@ export default {
         lastName: 'Wells',
         email: 'yadayada9@yadayada.se',
         password: '1234567890',
-        companyId: 35,
         createdAt : new Date(),
         updatedAt : new Date()
       }
