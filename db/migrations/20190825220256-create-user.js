@@ -20,9 +20,14 @@ export default {
         allowNull: false,
         unique: true
       },
-      password: {
+      title: {
         type: Sequelize.STRING
       },
+      avatar: {
+        type: Sequelize.STRING
+      },
+      password: {
+        type: Sequelize.STRING
       },
       createdAt: {
         type: Sequelize.DATE,
