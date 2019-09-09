@@ -2,37 +2,43 @@ export default {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('Participations', [
       { // Design project
-        userId: 7,
+        userId: 1,
         collabId: 1,
         createdAt : new Date(),
         updatedAt : new Date()
       },
       {
-        userId: 25,
+        userId: 8,
         collabId: 1,
         createdAt : new Date(),
         updatedAt : new Date()
       },
       {
-        userId: 28,
+        userId: 2,
         collabId: 1,
         createdAt : new Date(),
         updatedAt : new Date()
       },
       { // Open-source project
-        userId: 23,
+        userId: 3,
         collabId: 2,
         createdAt : new Date(),
         updatedAt : new Date()
       },
       {
-        userId: 24,
+        userId: 4,
+        collabId: 2,
+        createdAt : new Date(),
+        updatedAt : new Date()
+      },
+      {
+        userId: 5,
         collabId: 2,
         createdAt : new Date(),
         updatedAt : new Date()
       }
     ], {})
-    .catch(error => console.log('Error: ', error.name)) 
+    .catch(error => console.log('Error: ', error)) 
   },
 
   down: (queryInterface, Sequelize) => {

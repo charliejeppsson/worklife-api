@@ -28,6 +28,11 @@ export default {
         allowNull: false,
         references: { model: 'Users', key: 'id', as: 'userId' }
       },
+      imageId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: { model: 'Images', key: 'id', as: 'imageId' }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

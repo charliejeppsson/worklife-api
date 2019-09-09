@@ -9,7 +9,7 @@ export default (sequelize, DataTypes) => {
       allowNull: { args: false, msg: 'Description is required.' }
     },
     content: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: { args: false, msg: 'Content is required.' }
     },
     userId: {

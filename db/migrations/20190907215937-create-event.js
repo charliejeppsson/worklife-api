@@ -33,6 +33,11 @@ export default {
         allowNull: false,
         references: { model: 'Spaces', key: 'id', as: 'spaceId' }
       },
+      imageId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: { model: 'Images', key: 'id', as: 'imageId' }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

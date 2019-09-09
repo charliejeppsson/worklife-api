@@ -25,6 +25,11 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: { args: false, msg: 'Each event must have a space.' },
       references: { model: 'Spaces', key: 'id', as: 'spaceId' }
+    },
+    imageId: {
+      type: DataTypes.INTEGER,
+      allowNull: { args: false, msg: 'Each event must have an image.' },
+      references: { model: 'Images', key: 'id', as: 'imageId' }
     }
   }, {})
 
@@ -34,6 +39,9 @@ export default (sequelize, DataTypes) => {
     })
     Event.belongsTo(models.Space, {
       foreignKey: 'spaceId'
+    })
+    Event.belongsTo(models.Image, {
+      foreignKey: 'imageId'
     })
   }
 

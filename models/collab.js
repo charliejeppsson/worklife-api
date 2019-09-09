@@ -20,12 +20,20 @@ export default (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: { args: false, msg: 'Each collab must have a user.' },
       references: { model: 'Users', key: 'id', as: 'userId' }
+    },
+    imageId: {
+      type: DataTypes.INTEGER,
+      allowNull: { args: false, msg: 'Each collab must have an image.' },
+      references: { model: 'Images', key: 'id', as: 'imageId' }
     }
   }, {})
 
   Collab.associate = function(models) {
     Collab.belongsTo(models.User, {
       foreignKey: 'userId'
+    })
+    Collab.belongsTo(models.Image, {
+      foreignKey: 'imageId'
     })
   }
 

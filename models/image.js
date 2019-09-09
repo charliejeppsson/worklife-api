@@ -10,7 +10,18 @@ export default (sequelize, DataTypes) => {
   }, {})
 
   Image.associate = function(models) {
-
+    // Image.hasOne(models.Space, {
+    //   onDelete: 'CASCADE'
+    // })
+    // Image.hasOne(models.Event, {
+    //   onDelete: 'CASCADE'
+    // })
+    // Image.hasOne(models.Collab, {
+    //   onDelete: 'CASCADE'
+    // })
+    // Image.hasOne(models.NewsPost, {
+    //   onDelete: 'CASCADE'
+    // })
   }
 
   return Image
