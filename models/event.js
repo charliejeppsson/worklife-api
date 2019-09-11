@@ -43,6 +43,9 @@ export default (sequelize, DataTypes) => {
     Event.belongsTo(models.Image, {
       foreignKey: 'imageId'
     })
+    Event.hasMany(models.Attendance, {
+      foreignKey: 'eventId'
+    })
   }
 
   return Event
