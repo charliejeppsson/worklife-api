@@ -58,8 +58,8 @@ export default `
     collab: Collab
     eventId: ID
     event: Event
-    imageId: ID!
-    image: Image!
+    imageId: ID
+    image: Image
     userId: ID!
     user: User!
     createdAt: Date!
@@ -99,6 +99,8 @@ export default `
   type Query {
     attendances: [Attendance]
     attendance(id: ID!): Attendance
+    collabs: [Collab]
+    collab(id: ID!): Collab
     events: [Event]
     event(id: ID!): Event
     newsPosts: [NewsPost]

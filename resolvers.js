@@ -28,6 +28,8 @@ export default {
 
   Collab: {
     participations: (parent, args, context, info) => parent.getParticipations(),
+    image: (parent, args, context, info) => parent.getImage(),
+    user: (parent, args, context, info) => parent.getUser()
   },
 
   Event: {
@@ -57,6 +59,7 @@ export default {
   Query: {
     // Index
     attendances: (parent, args, { db }, info) => db.Attendance.findAll(),
+    collabs: (parent, args, { db }, info) => db.Collab.findAll(),
     events: (parent, args, { db }, info) => db.Event.findAll(),
     participations: (parent, args, { db }, info) => db.Participation.findAll(),
     newsPosts: (parent, args, { db }, info) => db.NewsPost.findAll(),
@@ -64,6 +67,7 @@ export default {
     // Read
     attendance: (parent, { id }, { db }, info) => db.Attendance.findByPk(id),
     event: (parent, { id }, { db }, info) => db.Event.findByPk(id),
+    collab: (parent, { id }, { db }, info) => db.Collab.findByPk(id),
     participation: (parent, { id }, { db }, info) => db.Participation.findByPk(id),
     event: (parent, { id }, { db }, info) => db.Event.findByPk(id),
     newsPost: (parent, { id }, { db }, info) => db.NewsPost.findByPk(id),
