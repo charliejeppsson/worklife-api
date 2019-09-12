@@ -1,6 +1,8 @@
 // ! means the field is required, i.e. no null values
 
 export default `
+  scalar Date
+
   type Attendance {
     id: ID!
     userId: ID!
@@ -19,6 +21,8 @@ export default `
     user: User!
     imageId: ID!
     image: Image!
+    createdAt: Date!
+    updatedAt: Date!
     participations: [Participation]
   }
 
@@ -26,14 +30,16 @@ export default `
     id: ID!
     title: String!
     description: String!
-    startTime: String!
-    endTime: String!
+    startTime: Date!
+    endTime: Date!
     imageId: ID!
     image: Image!
     spaceId: ID
     space: Space
     userId: ID!
     user: User!
+    createdAt: Date!
+    updatedAt: Date!
     attendances: [Attendance]
   }
   
@@ -56,8 +62,8 @@ export default `
     image: Image!
     userId: ID!
     user: User!
-    createdAt: String!
-    updatedAt: String!
+    createdAt: Date!
+    updatedAt: Date!
   }
 
   type Participation {
