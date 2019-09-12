@@ -32,7 +32,9 @@ export default {
 
   Event: {
     attendances: (parent, args, context, info) => parent.getAttendances(),
-    space: (parent, args, context, info) => parent.getSpace()
+    space: (parent, args, context, info) => parent.getSpace(),
+    image: (parent, args, context, info) => parent.getImage(),
+    user: (parent, args, context, info) => parent.getUser()
   },
 
   NewsPost: {
@@ -55,11 +57,13 @@ export default {
   Query: {
     // Index
     attendances: (parent, args, { db }, info) => db.Attendance.findAll(),
+    events: (parent, args, { db }, info) => db.Event.findAll(),
     participations: (parent, args, { db }, info) => db.Participation.findAll(),
     newsPosts: (parent, args, { db }, info) => db.NewsPost.findAll(),
     users: (parent, args, { db }, info) => db.User.findAll(),
     // Read
     attendance: (parent, { id }, { db }, info) => db.Attendance.findByPk(id),
+    event: (parent, { id }, { db }, info) => db.Event.findByPk(id),
     participation: (parent, { id }, { db }, info) => db.Participation.findByPk(id),
     event: (parent, { id }, { db }, info) => db.Event.findByPk(id),
     newsPost: (parent, { id }, { db }, info) => db.NewsPost.findByPk(id),

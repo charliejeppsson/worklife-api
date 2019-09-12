@@ -98,13 +98,13 @@ export default `
  
   type Query {
     attendances: [Attendance]
-    attendance: Attendance
-    newsPosts: [NewsPost!]
+    attendance(id: ID!): Attendance
+    events: [Event]
+    event(id: ID!): Event
+    newsPosts: [NewsPost]
     newsPost(id: ID!): NewsPost
     users: [User!]
     user(id: ID!): User
-    events: [Event!]
-    event(id: ID!): Event
     participations: [Participation]
     participation: Participation
     spaces: [Space!]
