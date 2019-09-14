@@ -2,7 +2,6 @@ export default {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('Users', [
       {
-        id: 1,
         firstName: 'Charlie',
         lastName: 'Jeppsson',
         email: 'charlie.jeppsson1@gmail.se',
@@ -13,7 +12,6 @@ export default {
         updatedAt : new Date()
       },
       {
-        id: 2,
         firstName: 'Jared',
         lastName: 'Dunn',
         email: 'fakejared@piedpiper.se',
@@ -24,7 +22,6 @@ export default {
         updatedAt : new Date()
       },
       {
-        id: 3,
         firstName: 'Richard',
         lastName: 'Hendricks',
         email: 'fakerichard@piedpiper.se',
@@ -35,7 +32,6 @@ export default {
         updatedAt : new Date()
       },
       {
-        id: 4,
         firstName: 'Bertram',
         lastName: 'Gilfoyle',
         email: 'fakegilfoyle@piedpiper.se',
@@ -46,7 +42,6 @@ export default {
         updatedAt : new Date()
       },
       {
-        id: 5,
         firstName: 'Dinesh',
         lastName: 'Chugtai',
         email: 'fakedinesh@piedpiper.se',
@@ -57,7 +52,6 @@ export default {
         updatedAt : new Date()
       },
       {
-        id: 6,
         firstName: 'Erlich',
         lastName: 'Bachman',
         email: 'fakeerlich@piedpiper.se',
@@ -68,7 +62,6 @@ export default {
         updatedAt : new Date()
       },
       {
-        id: 7,
         firstName: 'Monica',
         lastName: 'Hall',
         email: 'fakemonica@raviga.se',
@@ -79,7 +72,6 @@ export default {
         updatedAt : new Date()
       },
       {
-        id: 8,
         firstName: 'Bighead',
         lastName: 'Bighetti',
         email: 'fakebighead@piedpiper.se',
@@ -90,7 +82,6 @@ export default {
         updatedAt : new Date()
       },
       {
-        id: 9,
         firstName: 'Gavin',
         lastName: 'Belson',
         email: 'fakegavin@hooli.se',
@@ -101,7 +92,6 @@ export default {
         updatedAt : new Date()
       },
       {
-        id: 10,
         firstName: 'Jian-Yáng',
         lastName: '',
         email: 'fakejianyang@octopus.se',
