@@ -20,12 +20,6 @@ export default {
         updatedAt : new Date()
       },
       { // Open-source project
-        userId: 3,
-        collabId: 2,
-        createdAt : new Date(),
-        updatedAt : new Date()
-      },
-      {
         userId: 4,
         collabId: 2,
         createdAt : new Date(),
