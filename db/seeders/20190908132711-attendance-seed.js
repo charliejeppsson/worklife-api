@@ -8,12 +8,6 @@ export default {
         updatedAt : new Date()
       },
       {
-        userId: 3,
-        eventId: 1, 
-        createdAt : new Date(),
-        updatedAt : new Date()
-      },
-      {
         userId: 4,
         eventId: 1, 
         createdAt : new Date(),
@@ -55,19 +49,7 @@ export default {
         createdAt : new Date(),
         updatedAt : new Date()
       },
-      {
-        userId: 9,
-        eventId: 2, 
-        createdAt : new Date(),
-        updatedAt : new Date()
-      },
       { // Mandarin 101 --------------
-        userId: 10,
-        eventId: 3, 
-        createdAt : new Date(),
-        updatedAt : new Date()
-      },
-      {
         userId: 7,
         eventId: 3, 
         createdAt : new Date(),
