@@ -10,8 +10,8 @@ export default {
         updatedAt : new Date()
       },
       {
-        url: 'https://res.cloudinary.com/charliejeppsson/image/upload/v1567875138/photo-1508804185872-d7badad00f7d_nl1haf.jpg',
-        info: 'Photo by Hanson Lu on Unsplash',
+        url: 'https://res.cloudinary.com/charliejeppsson/image/upload/v1568476241/yux-xiang-sBNx8CBj12w-unsplash_mufuh0.jpg',
+        info: 'Photo by Yux Xiang on Unsplash',
         createdAt : new Date(),
         updatedAt : new Date()
       },
@@ -28,8 +28,8 @@ export default {
         updatedAt : new Date()
       },
       {
-        url: 'https://res.cloudinary.com/charliejeppsson/image/upload/v1567779514/react-logo_wgzm79.png',
-        info: null,
+        url: 'https://res.cloudinary.com/charliejeppsson/image/upload/v1568492368/photo-1556761175-5973dc0f32e7_eqano8.jpg',
+        info: 'Photo by Austin Distel on Unsplash',
         createdAt : new Date(),
         updatedAt : new Date()
       },
