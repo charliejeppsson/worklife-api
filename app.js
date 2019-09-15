@@ -1,8 +1,8 @@
 import express from 'express'
 import { ApolloServer, gql } from 'apollo-server-express'
 import cors from 'cors'
-import typeDefs from './schema';
-import resolvers from './resolvers';
+import typeDefs from './graphql/schema';
+import resolvers from './graphql/resolvers';
 import db from './models';
 
 const server = new ApolloServer({
