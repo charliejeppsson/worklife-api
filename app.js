@@ -4,6 +4,7 @@ import cors from 'cors'
 import typeDefs from './graphql/schema';
 import resolvers from './graphql/resolvers';
 import db from './models';
+require('dotenv').config() // Env variables
 
 const server = new ApolloServer({
   typeDefs: gql(typeDefs),
