@@ -1,4 +1,5 @@
 import attendanceResolver from './resolvers/attendance'
+import authResolver from './resolvers/auth'
 import collabResolver from './resolvers/collab'
 import eventResolver from './resolvers/event'
 import imageResolver from './resolvers/image'
@@ -20,6 +21,7 @@ export default {
 
   Query: {
     ...attendanceResolver.AttendanceQueries,
+    ...authResolver.AuthQueries,
     ...collabResolver.CollabQueries,
     ...eventResolver.EventQueries,
     ...imageResolver.ImageQueries,
@@ -31,6 +33,7 @@ export default {
 
   Mutation: {
     ...attendanceResolver.AttendanceMutations,
+    ...authResolver.AuthMutations,
     ...collabResolver.CollabMutations,
     ...eventResolver.EventMutations,
     ...imageResolver.ImageMutations,
