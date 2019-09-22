@@ -15,7 +15,7 @@ const UserType = `
 
 const UserQueries = `
   users: [User!]
-  user(id: ID!): User
+  user(id: ID): User
 `
 
 const UserMutations = `

@@ -24,7 +24,6 @@ export default `
   
   type Query {
     ${attendanceSchemas.AttendanceQueries}
-    ${authSchemas.AuthQueries}
     ${collabSchemas.CollabQueries}
     ${eventSchemas.EventQueries}
     ${imageSchemas.ImageQueries}

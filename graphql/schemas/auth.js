@@ -1,11 +1,8 @@
 const AuthType = `
   type AuthData {
     user: User
+    accessToken: String
   }
-`
-
-const AuthQueries = `
-  currentUser: User
 `
 
 const AuthMutations = `
@@ -13,4 +10,4 @@ const AuthMutations = `
   logout: AuthData!
 `
 
-export default { AuthType, AuthQueries, AuthMutations }
+export default { AuthType, AuthMutations }

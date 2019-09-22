@@ -8,50 +8,39 @@ import jwt from 'jsonwebtoken'
 import schema from './graphql/schema'
 import resolvers from './graphql/resolvers'
 import db from './models'
+import { refreshTokens, verifyAccessToken } from './middleware/auth'
+import apiRoutes from './routes/api/v1'
 
 require('dotenv').config() // Env variables
 
 // Initialize express app
 const app = express()
 
+const corsOptions = { origin: process.env.CLIENT_URL, credentials: true }
+app.use(cors(corsOptions))
+app.use(cookieParser())
+
 // Log requests to the console
 app.use(logger('[:date[iso]] :method :url :status - :response-time ms'))
+
+// Separate authentication from graphql API
+app.use('/api/v1', apiRoutes)
 
 const server = new ApolloServer({
   typeDefs: gql(schema),
   resolvers,
-  context: async ({ req }) => {
-    // Checks for user id in cookies and adds userId to each request
-    const { token } = req.cookies
-    if (token) {
-      const { userId } = jwt.verify(token, process.env.AUTH_SECRET)
-      req.userId = userId
+  context: async ({ req, res }) => {
+    // Check access token validity before any query gets access to resolvers
+    if (req.body.operationName !== 'login') {
+      verifyAccessToken(req)
     }
-
-    let user
-    if (!req.userId) {
-      user = {}
-      // throw new AuthenticationError('You must be logged in!')
-    } else {
-      user = await db.User.findByPk(req.userId)
-    }
-
-    return { ...req, db, user }
+    return { req, res, db }
   }
 })
-
-var corsOptions = {
-  origin: process.env.CLIENT_URL,
-  credentials: true // <-- REQUIRED backend setting
-};
-
-app.use(cors(corsOptions))
-app.use(cookieParser())
 
 // Integrate express app with apollo server middleware
 server.applyMiddleware({
   app,
-  path: '/',
   cors: false // Disables built-in apollo cors to allow the cors middleware use
 })
 

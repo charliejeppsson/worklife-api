@@ -21,7 +21,6 @@ export default {
 
   Query: {
     ...attendanceResolver.AttendanceQueries,
-    ...authResolver.AuthQueries,
     ...collabResolver.CollabQueries,
     ...eventResolver.EventQueries,
     ...imageResolver.ImageQueries,
