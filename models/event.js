@@ -43,7 +43,8 @@ export default (sequelize, DataTypes) => {
     Event.belongsTo(models.Image, {
       foreignKey: 'imageId'
     })
-    Event.hasMany(models.Attendance, {
+    Event.belongsToMany(models.User, {
+      through: models.Attendance,
       foreignKey: 'eventId'
     })
   }

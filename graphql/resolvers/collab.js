@@ -1,5 +1,7 @@
 const CollabAssociations = {
-  participations: (parent, args, context, info) => parent.getParticipations(),
+  participants: (parent, args, { dataLoaders }, info) => {
+    return dataLoaders.participantsLoader.load(parent.id)
+  },
   image: (parent, args, { dataLoaders }, info) => {
     if (parent.imageId) { return dataLoaders.imageLoader.load(parent.imageId) }
   },

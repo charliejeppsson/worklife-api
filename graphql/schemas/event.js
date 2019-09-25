@@ -13,7 +13,7 @@ const EventType = `
     user: User
     createdAt: Date!
     updatedAt: Date!
-    attendances: [Attendance]
+    attendants: [User]
   }
 `
 

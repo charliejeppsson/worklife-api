@@ -39,6 +39,14 @@ export default (sequelize, DataTypes) => {
     User.hasMany(models.NewsPost, {
       foreignKey: 'userId'
     })
+    User.belongsToMany(models.Event, {
+      through: models.Attendance,
+      foreignKey: 'userId'
+    })
+    User.belongsToMany(models.Collab, {
+      through: models.Participation,
+      foreignKey: 'userId'
+    })
   }
   
   return User

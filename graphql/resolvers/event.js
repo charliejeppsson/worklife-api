@@ -1,5 +1,7 @@
 const EventAssociations = {
-  attendances: (parent, args, context, info) => parent.getAttendances(),
+  attendants: (parent, args, { dataLoaders }, info) => {
+    return dataLoaders.attendantsLoader.load(parent.id)
+  },
   image: (parent, args, { dataLoaders }, info) => {
     if (parent.imageId) { return dataLoaders.imageLoader.load(parent.imageId) }
   },

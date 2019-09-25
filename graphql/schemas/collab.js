@@ -11,7 +11,7 @@ const CollabType = `
     image: Image!
     createdAt: Date!
     updatedAt: Date!
-    participations: [Participation]
+    participants: [User]
   }
 `
 

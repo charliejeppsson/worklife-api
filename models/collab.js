@@ -35,7 +35,8 @@ export default (sequelize, DataTypes) => {
     Collab.belongsTo(models.Image, {
       foreignKey: 'imageId'
     })
-    Collab.hasMany(models.Participation, {
+    Collab.belongsToMany(models.User, {
+      through: models.Participation,
       foreignKey: 'collabId'
     })
   }
