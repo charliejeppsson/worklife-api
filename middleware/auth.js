@@ -28,7 +28,6 @@ export const verifyAccessToken = async (req) => {
   if (!req.headers.authorization) { return authError }
 
   const accessToken = req.headers.authorization.split(' ')[1]
-  console.log('accessToken from headers: ', accessToken)
   if (!accessToken) { return authError }
 
   let userId
