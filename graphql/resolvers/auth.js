@@ -1,16 +1,20 @@
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
+import { AuthenticationError } from 'apollo-server-express'
 import {
   createAccessToken,
   createRefreshToken,
   setRefreshTokenCookie
 } from '../../middleware/auth'
 
+const loginError = new AuthenticationError(
+  'No match found for either email or password.'
+)
+
 const AuthMutations = {
   login: async (parent, { email, password }, context, info) => {
     // Check email
     const user = await context.db.User.findOne({ where: { email: email }})
-    const loginError = new Error('No match found for either email or password!')
     if (!user) { throw loginError }
 
     // Check password
