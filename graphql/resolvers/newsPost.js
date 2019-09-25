@@ -1,8 +1,16 @@
 const NewsPostAssociations = {
-  collab: (parent, args, context, info) => parent.getCollab(),
-  event: (parent, args, context, info) => parent.getEvent(),
-  image: (parent, args, context, info) => parent.getImage(),
-  user: (parent, args, context, info) => parent.getUser()
+  collab: (parent, args, { dataLoaders }, info) => {
+    if (parent.collabId) { return dataLoaders.collabLoader.load(parent.collabId) }
+  },
+  event: (parent, args, { dataLoaders }, info) => {
+    if (parent.eventId) { return dataLoaders.eventLoader.load(parent.eventId) }
+  },
+  image: (parent, args, { dataLoaders }, info) => {
+    if (parent.imageId) { return dataLoaders.imageLoader.load(parent.imageId) }
+  },
+  user: (parent, args, { dataLoaders }, info) => {
+    if (parent.userId) { return dataLoaders.userLoader.load(parent.userId) }
+  }
 }
 
 const NewsPostQueries = {

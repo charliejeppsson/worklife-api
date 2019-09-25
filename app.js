@@ -4,6 +4,7 @@ import cors from 'cors'
 import logger from 'morgan'
 import cookieParser from 'cookie-parser'
 import jwt from 'jsonwebtoken'
+import dataLoaders from './loaders'
 
 import schema from './graphql/schema'
 import resolvers from './graphql/resolvers'
@@ -34,7 +35,12 @@ const server = new ApolloServer({
     if (req.body.operationName !== 'login') {
       verifyAccessToken(req)
     }
-    return { req, res, db }
+    return {
+      req,
+      res,
+      db,
+      dataLoaders // For batching together association requests (avoid N+1)
+    }
   }
 })
 
