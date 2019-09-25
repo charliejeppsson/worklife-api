@@ -1,5 +1,7 @@
 const UserAssociations = {
-  newsPosts: (parent, args, context, info) => parent.getNewsPosts()
+  newsPosts: (parent, args, { dataLoaders }, info) => {
+    return dataLoaders.newsPostsLoader.load(parent.id)
+  },
 }
 
 const UserQueries = {

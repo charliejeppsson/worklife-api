@@ -36,7 +36,9 @@ export default (sequelize, DataTypes) => {
   }, {})
   
   User.associate = (models) => {
-    // Nothing here yet
+    User.hasMany(models.NewsPost, {
+      foreignKey: 'userId'
+    })
   }
   
   return User
