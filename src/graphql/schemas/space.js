@@ -5,8 +5,7 @@ const SpaceType = `
     city: String!
     address: String!
     type: String!
-    imageId: ID!
-    image: Image!
+    image: Image
   }
 `
 
