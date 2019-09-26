@@ -4,13 +4,13 @@ import cors from 'cors'
 import logger from 'morgan'
 import cookieParser from 'cookie-parser'
 import jwt from 'jsonwebtoken'
-import dataLoaders from './loaders'
 
-import schema from './graphql/schema'
-import resolvers from './graphql/resolvers'
-import db from './models'
-import { refreshTokens, verifyAccessToken } from './middleware/auth'
-import apiRoutes from './routes/api/v1'
+import schema from './src/graphql/schema'
+import resolvers from './src/graphql/resolvers'
+import db from './src/models'
+import dataLoaders from './src/loaders'
+import { refreshTokens, verifyAccessToken } from './src/middleware/auth'
+import apiRoutes from './src/routes/api/v1'
 
 require('dotenv').config() // Env variables
 
