@@ -40,6 +40,7 @@ export default `
     ${imageSchemas.ImageMutations}
     ${newsPostSchemas.NewsPostMutations}
     ${participationSchemas.ParticipationMutations}
+    ${spaceSchemas.SpaceMutations}
     ${userSchemas.UserMutations}
   }
 `
