@@ -11,7 +11,12 @@ const ImageMutations = {
   }),
 
   updateImage: (parent, { id, url, info }, { db }) => (
-    db.Image.update({ url, info }, { where: { id: id } })
+    db.Image.update({ url, info }, { returning: true, where: { id } })
+      .then(([ rowsUpdate, [ updatedImage ]]) => {
+        const res = updatedImage.dataValues
+        return { id: res.id, url: res.url, info: res.info }
+      })
+      .catch(err => console.log(err))
   )
 }
 
