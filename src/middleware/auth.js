@@ -42,4 +42,5 @@ export const verifyAccessToken = async (req) => {
 
   const user = await db.User.findByPk(userId)
   if (!user) { return authError }
+  return user
 }

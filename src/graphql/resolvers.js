@@ -1,5 +1,6 @@
 import attendanceResolver from './resolvers/attendance'
 import authResolver from './resolvers/auth'
+import bookingResolver from './resolvers/booking'
 import collabResolver from './resolvers/collab'
 import eventResolver from './resolvers/event'
 import imageResolver from './resolvers/image'
@@ -11,6 +12,7 @@ import userResolver from './resolvers/user'
 export default {
   // Associations
   Attendance: attendanceResolver.AttendanceAssociations,
+  Booking: bookingResolver.BookingAssociations,
   Collab: collabResolver.CollabAssociations,
   Event: eventResolver.EventAssociations,
   Image: imageResolver.ImageAssociations,
@@ -21,6 +23,7 @@ export default {
 
   Query: {
     ...attendanceResolver.AttendanceQueries,
+    ...bookingResolver.BookingQueries,
     ...collabResolver.CollabQueries,
     ...eventResolver.EventQueries,
     ...imageResolver.ImageQueries,
@@ -33,6 +36,7 @@ export default {
   Mutation: {
     ...attendanceResolver.AttendanceMutations,
     ...authResolver.AuthMutations,
+    ...bookingResolver.BookingMutations,
     ...collabResolver.CollabMutations,
     ...eventResolver.EventMutations,
     ...imageResolver.ImageMutations,

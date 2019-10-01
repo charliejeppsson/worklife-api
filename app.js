@@ -30,10 +30,10 @@ app.use('/api/v1', apiRoutes)
 const server = new ApolloServer({
   typeDefs: gql(schema),
   resolvers,
-  context: async ({ req, res }) => {
+  context: ({ req, res }) => {
     // Check access token validity before any query gets access to resolvers
     if (req.body.operationName !== 'login') {
-      verifyAccessToken(req)
+      const user = verifyAccessToken(req)
     }
     return {
       req,
