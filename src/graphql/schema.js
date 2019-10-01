@@ -1,5 +1,6 @@
 import attendanceSchemas from './schemas/attendance'
 import authSchemas from './schemas/auth'
+import bookingSchemas from './schemas/booking'
 import collabSchemas from './schemas/collab'
 import eventSchemas from './schemas/event'
 import imageSchemas from './schemas/image'
@@ -14,6 +15,7 @@ export default `
 
   ${attendanceSchemas.AttendanceType}
   ${authSchemas.AuthType}
+  ${bookingSchemas.BookingType}
   ${collabSchemas.CollabType}
   ${eventSchemas.EventType}
   ${imageSchemas.ImageType}
@@ -24,6 +26,7 @@ export default `
   
   type Query {
     ${attendanceSchemas.AttendanceQueries}
+    ${bookingSchemas.BookingQueries}
     ${collabSchemas.CollabQueries}
     ${eventSchemas.EventQueries}
     ${imageSchemas.ImageQueries}
@@ -36,6 +39,7 @@ export default `
   type Mutation {
     ${attendanceSchemas.AttendanceMutations}
     ${authSchemas.AuthMutations}
+    ${bookingSchemas.BookingMutations}
     ${eventSchemas.EventMutations}
     ${imageSchemas.ImageMutations}
     ${newsPostSchemas.NewsPostMutations}
