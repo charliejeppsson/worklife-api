@@ -23,6 +23,15 @@ const EventQueries = `
 `
 
 const EventMutations = `
+  createEvent(
+    title: String!,
+    description: String!,
+    startTime: Date!,
+    endTime: Date!,
+    imageUrl: String!,
+    spaceId: ID!,
+  ): Event!
+
   updateEvent(
     id: ID,
     title: String,

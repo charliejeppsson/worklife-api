@@ -1,3 +1,6 @@
+import jwt from 'jsonwebtoken'
+import { verifyAccessToken } from '../../middleware/auth'
+
 const EventAssociations = {
   attendants: (parent, args, { dataLoaders }, info) => {
     return dataLoaders.attendantsLoader.load(parent.id)
@@ -19,6 +22,27 @@ const EventQueries = {
 }
 
 const EventMutations = {
+  createEvent: async (parent, args, { db, req }, info) => {
+    const user = await verifyAccessToken(req)
+
+    try {
+      const newImage = await db.Image.create({ url: args.imageUrl, info: null })
+      const space = await db.Space.findByPk(args.spaceId) 
+
+      const newEvent = await db.Event.create({
+        title: args.title,
+        description: args.description,
+        startTime: args.startTime,
+        endTime: args.endTime,
+        imageId: newImage.dataValues.id,
+        spaceId: space.id,
+        userId: user.id
+      })
+      return newEvent.dataValues
+    } catch(err) {
+      console.log(err)
+    }
+  },
   updateEvent: (parent, {
     id,
     title,
