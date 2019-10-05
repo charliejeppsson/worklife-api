@@ -1,6 +1,4 @@
 import jwt from 'jsonwebtoken'
-import { AuthenticationError } from 'apollo-server-express'
-
 import { verifyAccessToken } from '../../middleware/auth'
 
 const BookingAssociations = {
