@@ -13,6 +13,12 @@ const CollabType = `
     updatedAt: Date!
     participants: [User]
   }
+
+  type JoinResponse {
+    success: Boolean
+    collab: Collab
+    message: String
+  }
 `
 
 const CollabQueries = `
@@ -28,6 +34,8 @@ const CollabMutations = `
     compensation: Int!,
     imageUrl: String!
   ): Collab!
+
+  joinCollab(id: ID!): JoinResponse!
 `
 
 export default {

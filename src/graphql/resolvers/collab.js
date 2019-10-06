@@ -37,6 +37,35 @@ const CollabMutations = {
       console.log(err)
     }
   },
+
+  joinCollab: async (parent, { id }, { db, req }, info) => {
+    const user = await verifyAccessToken(req)
+
+    try {
+      const collab = await db.Collab.findByPk(id) 
+      const existingParticipation = await db.Participation.findOne({ where: {
+        userId: user.id,
+        collabId: collab.id
+      }})
+
+      if (existingParticipation) {
+        return {
+          success: false,
+          collab: collab.dataValues,
+          message: "You've already attended."
+        }
+      } else {
+        await db.Participation.create({ collabId: collab.id, userId: user.id })
+        return {
+          success: true,
+          collab: collab.dataValues,
+          message: ''
+        }
+      }
+    } catch(err) {
+      console.log(err)
+    }
+  }
 }
 
 export default {
