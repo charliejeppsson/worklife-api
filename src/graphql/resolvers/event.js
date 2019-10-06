@@ -43,6 +43,7 @@ const EventMutations = {
       console.log(err)
     }
   },
+
   updateEvent: (parent, {
     id,
     title,
@@ -69,7 +70,36 @@ const EventMutations = {
         }
       }
     )
-  )
+  ),
+
+  attendEvent: async (parent, { id }, { db, req }, info) => {
+    const user = await verifyAccessToken(req)
+
+    try {
+      const event = await db.Event.findByPk(id) 
+      const existingAttendance = await db.Attendance.findOne({ where: {
+        userId: user.id,
+        eventId: event.id
+      }})
+
+      if (existingAttendance) {
+        return {
+          success: false,
+          event: event.dataValues,
+          message: "You've already attended."
+        }
+      } else {
+        await db.Attendance.create({ eventId: event.id, userId: user.id })
+        return {
+          success: true,
+          event: event.dataValues,
+          message: ''
+        }
+      }
+    } catch(err) {
+      console.log(err)
+    }
+  }
 }
 
 export default {

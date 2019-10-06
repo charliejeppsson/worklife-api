@@ -11,9 +11,15 @@ const EventType = `
     space: Space
     userId: ID
     user: User
-    createdAt: Date!
-    updatedAt: Date!
+    createdAt: Date
+    updatedAt: Date
     attendants: [User]
+  }
+
+  type AttendResponse {
+    success: Boolean
+    event: Event
+    message: String
   }
 `
 
@@ -44,6 +50,8 @@ const EventMutations = `
     createdAt: Date,
     updatedAt: Date
   ): Event!
+
+  attendEvent(id: ID!): AttendResponse!
 `
 
 export default {
