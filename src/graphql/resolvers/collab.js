@@ -1,3 +1,6 @@
+import jwt from 'jsonwebtoken'
+import { verifyAccessToken } from '../../middleware/auth'
+
 const CollabAssociations = {
   participants: (parent, args, { dataLoaders }, info) => {
     return dataLoaders.participantsLoader.load(parent.id)
@@ -15,7 +18,26 @@ const CollabQueries = {
   collab: (parent, { id }, { db }, info) => db.Collab.findByPk(id)
 }
 
-const CollabMutations = {}
+const CollabMutations = {
+  createCollab: async (parent, args, { db, req }, info) => {
+    const user = await verifyAccessToken(req)
+
+    try {
+      const newImage = await db.Image.create({ url: args.imageUrl, info: null })
+      const newCollab = await db.Collab.create({
+        title: args.title,
+        description: args.description,
+        duration: args.duration,
+        compensation: args.compensation,
+        imageId: newImage.dataValues.id,
+        userId: user.id
+      })
+      return newCollab.dataValues
+    } catch(err) {
+      console.log(err)
+    }
+  },
+}
 
 export default {
   CollabAssociations, CollabQueries, CollabMutations

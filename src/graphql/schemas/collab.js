@@ -20,7 +20,15 @@ const CollabQueries = `
   collab(id: ID!): Collab
 `
 
-const CollabMutations = ``
+const CollabMutations = `
+  createCollab(
+    title: String!,
+    description: String!,
+    duration: Int!,
+    compensation: Int!,
+    imageUrl: String!
+  ): Collab!
+`
 
 export default {
   CollabType, CollabQueries, CollabMutations

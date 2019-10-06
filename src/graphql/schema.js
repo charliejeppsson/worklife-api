@@ -40,6 +40,7 @@ export default `
     ${attendanceSchemas.AttendanceMutations}
     ${authSchemas.AuthMutations}
     ${bookingSchemas.BookingMutations}
+    ${collabSchemas.CollabMutations}
     ${eventSchemas.EventMutations}
     ${imageSchemas.ImageMutations}
     ${newsPostSchemas.NewsPostMutations}
