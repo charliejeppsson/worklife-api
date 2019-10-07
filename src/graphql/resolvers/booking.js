@@ -1,5 +1,27 @@
 import jwt from 'jsonwebtoken'
 import { verifyAccessToken } from '../../middleware/auth'
+import Sequelize from 'sequelize'
+
+const checkAvailability = async (params) => {
+  const { date, spaceId, userId, db } = params
+  const start = new Date(date).setUTCHours(0,0,0,0)
+  const end = new Date(date).setUTCHours(23,59,59,999)
+  const space = await db.Space.findByPk(spaceId)
+  const bookings = await db.Booking.findAll({ where: {
+    spaceId,
+    date: { [Sequelize.Op.between]: [start, end] }
+  }})
+  const bookingByMe = bookings.find(b => b.userId === userId)
+  const isFullyBooked = bookings.length >= space.dataValues.capacity
+
+  if (bookingByMe) {
+    return [false, 'You already have a booking for this date.']
+  } else if (isFullyBooked) {
+    return [false, 'Space fully booked for this date!']
+  } else {
+    return [true, '']
+  }
+}
 
 const BookingAssociations = {
   space: (parent, args, { dataLoaders }, info) => {
@@ -31,10 +53,16 @@ const BookingMutations = {
     const user = await verifyAccessToken(req)
 
     try {
-      const newBooking = await db.Booking.create(
-        { date: new Date(date), spaceId, userId: user.id }
-      )
-      return newBooking.dataValues
+      const params = { date, spaceId, userId: user.id, db }
+      const [spaceIsAvailable, msg] = await checkAvailability(params)
+      if (spaceIsAvailable) {
+        const newBooking = await db.Booking.create(
+          { date: new Date(date), spaceId, userId: user.id }
+        )
+        return { success: true, message: msg, booking: newBooking.dataValues }
+      } else {
+        return { success: false, message: msg, booking: {} }
+      }
     } catch(err) {
       console.log(err)
     }

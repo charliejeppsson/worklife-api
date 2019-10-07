@@ -10,6 +10,12 @@ const BookingType = `
     updatedAt: Date
   }
 
+  type CreateResponse {
+    booking: Booking
+    success: Boolean!
+    message: String
+  }
+
   type DeleteSuccess {
     success: Boolean
   }
@@ -22,7 +28,7 @@ const BookingQueries = `
 `
 
 const BookingMutations = `
-  createBooking(date: Date!, spaceId: ID!): Booking
+  createBooking(date: Date!, spaceId: ID!): CreateResponse
   cancelBooking(id: ID!): DeleteSuccess
 `
 
