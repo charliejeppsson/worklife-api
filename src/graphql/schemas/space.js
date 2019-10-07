@@ -15,11 +15,13 @@ const SpaceType = `
     meals: Boolean
     opensAt: String
     closesAt: String
+    availableSeats: Int
   }
 `
 
 const SpaceQueries = `
   spaces: [Space]
+  searchSpaces(name: String, date: Date!): [Space]
   space(id: ID!): Space
 `
 
