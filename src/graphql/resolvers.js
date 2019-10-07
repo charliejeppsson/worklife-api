@@ -1,5 +1,6 @@
 import attendanceResolver from './resolvers/attendance'
 import authResolver from './resolvers/auth'
+import benefitResolver from './resolvers/benefit'
 import bookingResolver from './resolvers/booking'
 import collabResolver from './resolvers/collab'
 import eventResolver from './resolvers/event'
@@ -12,6 +13,7 @@ import userResolver from './resolvers/user'
 export default {
   // Associations
   Attendance: attendanceResolver.AttendanceAssociations,
+  Benefit: benefitResolver.BenefitAssociations,
   Booking: bookingResolver.BookingAssociations,
   Collab: collabResolver.CollabAssociations,
   Event: eventResolver.EventAssociations,
@@ -23,6 +25,7 @@ export default {
 
   Query: {
     ...attendanceResolver.AttendanceQueries,
+    ...benefitResolver.BenefitQueries,
     ...bookingResolver.BookingQueries,
     ...collabResolver.CollabQueries,
     ...eventResolver.EventQueries,
@@ -36,6 +39,7 @@ export default {
   Mutation: {
     ...attendanceResolver.AttendanceMutations,
     ...authResolver.AuthMutations,
+    ...benefitResolver.BenefitMutations,
     ...bookingResolver.BookingMutations,
     ...collabResolver.CollabMutations,
     ...eventResolver.EventMutations,
