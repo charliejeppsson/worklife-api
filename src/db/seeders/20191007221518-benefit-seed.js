@@ -4,9 +4,18 @@ import db from '../../models'
 export default {
   up: async (queryInterface, Sequelize) => {
     try {
-      const firstImage = await db.Image.create({ url: '', info: '' })
-      const secondImage = await db.Image.create({ url: '', info: '' })
-      const thirdImage = await db.Image.create({ url: '', info: '' })
+      const firstImage = await db.Image.create({
+        url: 'https://res.cloudinary.com/charliejeppsson/image/upload/v1534944655/bnmhzpha3inywgaszua5.jpg',
+        info: 'https://www.scandichotels.se/'
+      })
+      const secondImage = await db.Image.create({
+        url: 'https://res.cloudinary.com/charliejeppsson/image/upload/v1534944700/h8jujujg6wnlbegxliac.jpg',
+        info: 'https://www.uber.com/se/sv/'
+      })
+      const thirdImage = await db.Image.create({
+        url: 'https://res.cloudinary.com/charliejeppsson/image/upload/v1535039760/qrbfcekt4qytbadvezl1.png',
+        info: 'https://www.sats.se/'
+      })
 
       await db.Benefit.create({
         title: '10% discount on accommodation',
