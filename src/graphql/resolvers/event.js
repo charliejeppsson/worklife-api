@@ -17,7 +17,9 @@ const EventAssociations = {
 }
 
 const EventQueries = {
-  events: (parent, args, { db }, info) => db.Event.findAll(),
+  events: (parent, args, { db }, info) => db.Event.findAll({
+    order: [ ['id', 'DESC'] ]
+  }),
   event: (parent, { id }, { db }, info) => db.Event.findByPk(id)
 }
 

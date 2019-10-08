@@ -14,7 +14,9 @@ const NewsPostAssociations = {
 }
 
 const NewsPostQueries = {
-  newsPosts: (parent, args, { db }, info) => db.NewsPost.findAll(),
+  newsPosts: (parent, args, { db }, info) => db.NewsPost.findAll({
+    order: [ ['id', 'DESC'] ]
+  }),
   newsPost: (parent, { id }, { db }, info) => db.NewsPost.findByPk(id)
 }
 

@@ -38,7 +38,10 @@ const BookingQueries = {
     const user = await verifyAccessToken(req)
 
     try {
-      const bookings = await db.Booking.findAll({ where: { userId: user.id } })
+      const bookings = await db.Booking.findAll({
+        where: { userId: user.id },
+        order: [ ['id', 'DESC'] ]
+      })
       return bookings.map(b => b.dataValues)
     } catch(err) {
       console.log(err)

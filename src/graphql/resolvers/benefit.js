@@ -5,7 +5,9 @@ const BenefitAssociations = {
 }
 
 const BenefitQueries = {
-  benefits: (parent, args, { db }, info) => db.Benefit.findAll(),
+  benefits: (parent, args, { db }, info) => db.Benefit.findAll({
+    order: [ ['id', 'DESC'] ]
+  }),
   benefit: (parent, { id }, { db }, info) => db.Benefit.findByPk(id)
 }
 

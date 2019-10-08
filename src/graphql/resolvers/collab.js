@@ -14,7 +14,9 @@ const CollabAssociations = {
 }
 
 const CollabQueries = {
-  collabs: (parent, args, { db }, info) => db.Collab.findAll(),
+  collabs: (parent, args, { db }, info) => db.Collab.findAll({
+    order: [ ['id', 'DESC'] ]
+  }),
   collab: (parent, { id }, { db }, info) => db.Collab.findByPk(id)
 }
 
