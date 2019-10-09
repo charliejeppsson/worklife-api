@@ -30,6 +30,16 @@ npm:
 $ npm install
 ```
 
+Create .env file with the following variables:
+
+```
+PORT=5000
+HOST=localhost
+CLIENT_URL=http://localhost:3000
+ACCESS_TOKEN_AUTH_SECRET=[your secret 1]
+REFRESH_TOKEN_AUTH_SECRET=[your secret 2]
+```
+
 ## Run app
 
 yarn:
