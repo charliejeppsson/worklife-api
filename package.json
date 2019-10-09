@@ -1,5 +1,5 @@
 {
-  "name": "convendum-js-api",
+  "name": "worklife-api",
   "version": "1.0.0",
   "description": "Test project mirroring the existing Rails backend with Node, Express, Postgres and GraphQL.",
   "main": "index.js",
