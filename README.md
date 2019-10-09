@@ -40,6 +40,8 @@ ACCESS_TOKEN_AUTH_SECRET=[your secret 1]
 REFRESH_TOKEN_AUTH_SECRET=[your secret 2]
 ```
 
+Edit config/config.json so that the db fields correspond to your own postgres db setup.
+
 ## Run app
 
 yarn:

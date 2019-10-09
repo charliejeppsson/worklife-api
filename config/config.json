@@ -2,21 +2,21 @@
   "development": {
     "username": "charliejeppsson",
     "password": null,
-    "database": "convendum-js-api-dev",
+    "database": "worklife-dev",
     "host": "localhost",
     "dialect": "postgres"
   },
   "test": {
     "username": "charliejeppsson",
     "password": null,
-    "database": "convendum-js-api-test",
+    "database": "worklife-test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
     "username": "charliejeppsson",
     "password": null,
-    "database": "convendum-js-api-prod",
+    "database": "worklife-prod",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }
