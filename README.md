@@ -1,7 +1,21 @@
-# Wörklife node+express+graphql api
+# Wörklife node+express+graphql+apollo api
 
 ## Installation
 
+### Set up dev database
+Assuming you have Postgres installed on your machine.
+
+```bash
+$ createdb [dev db name]
+```
+
+```bash
+$ sequelize db:migrate
+```
+
+```bash
+$ sequelize db:seed:all
+```
 ### Set up project
 
 yarn:
@@ -16,17 +30,16 @@ npm:
 $ npm install
 ```
 
-### Set up database
-Assuming you have Postgres installed on your machine.
+## Run app
+
+yarn:
 
 ```bash
-$ createdb [dev db name]
+$ yarn dev
 ```
 
-```bash
-$ sequelize db:migrate
-```
+npm:
 
 ```bash
-$ sequelize db:seed:all
+$ npm dev
 ```
