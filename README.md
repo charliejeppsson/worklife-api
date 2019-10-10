@@ -1,4 +1,4 @@
-# Wörklife node+express+graphql+apollo api
+# Wörklife node+express+sequelize+graphql+apollo api
 
 ## Installation
 
